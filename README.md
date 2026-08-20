@@ -3,16 +3,6 @@
 
 This repository contains an implementation of the integer linear programming formulation for solving the Level Minimization problem (Problem 2 in our paper) using Gurobi. This repository also contains the results of the experiments carried out in this paper.
 
-<!-- Given a rooted almost-binary phylogenetic network, the **Level Minimization**
-problem asks for a support network whose level is as small as possible. The
-minimum attainable level is called the *base level* of the input network. This
-repository contains the algorithms for solving this problem: an exact
-integer linear program that decides feasibility of level at most one
-(Formulation 1), and a heuristic integer linear program that minimizes
-overlap among reticulation cycles to obtain a support network of small level
-(Formulation 2). This repository also includes the datasets used in each
-experiment, as well as the code for generating these datasets, and the full
-experimental results reported in the paper. -->
 
 This repository serves as the supporting material for the following paper:
 > Takatora Suzuki. **Finding Tree-Like Substructures in Phylogenetic Networks: ILP Approaches and Their Application.** _submitted._
@@ -25,7 +15,7 @@ The repository is organized as follows:
     * `Formulation1_gurobi.py`: Implementation of Formulation 1, which exactly decides whether an input network has a support network of level at most one. 
     * `Formulation2_gurobi.py`: Implementation of Formulation 2, which heuristically minimizes the level of a support network of an input network.
     * `generate_instances_EXP1.py`: Code used to randomly generate the input data for the experiment in Section 5.1.
-    * `draw_network.py`: Code used to visualize a network, or a network together with a chosen support network, in PDF format via `graphviz`.
+    * `draw_network.py`: Code used to visualize a network in PDF format.
 * `data`: Contains the input data used for the experiments. 
     * `Form1_Experiment`: Data sets used in the experiment in Section 5.1.
     * `ARG_Application`: The two ancestral recombination graphs used in the case study in Section 6.
@@ -59,7 +49,7 @@ An activated Gurobi license is required to run the solver. See the [Gurobi websi
 
 When you run a program, you will be prompted for a file name. Enter the input path **without the `.txt` extension**; each script appends it automatically. We demonstrate the code using the sample input [`sample-input.txt`](sample-input.txt) (this network is isomorphic to the one shown in Fig. 2(a) of our paper).
 
-#### Formulation 1
+#### Running Formulation 1
 To run `Formulation1_gurobi`, use
 ```terminal
 python code/Formulation1_gurobi.py
@@ -86,7 +76,7 @@ wrote a support network to sample_support.pdf
 ```
 If feasible, this program outputs the support network of the input network in the working directory such as `sample-input_support.txt`. This program also visualizes the output in PDF format. This PDF highlights the support network in the input network with black solid lines.
 
-#### Formulation 2
+#### Running Formulation 2
 To run `Formulation2_gurobi`, use
 ```terminal
 python code/Formulation2_gurobi.py
@@ -111,20 +101,14 @@ To run `generate_instances_EXP1`, use
 ```terminal
 python code/generate_instances_EXP1.py
 ```
-and enter `<output filename> <n> <r> <l> <m>` on one line. 
-Then, this program generates a random level-2-based network with `n` leaves, `r` reticulations and having a level-2 support network with `l` level-2 blocks, and `m` level-1 blocks, and writes it to `hoge.txt` (relative to the current working directory).
+and enter `<output filename> <n> <r> <l> <m>` on one line. Then, this program generates a random level-2-based network with `n` leaves, `r` reticulations and having a level-2 support network with `l` level-2 blocks, and `m` level-1 blocks, and writes it to `<output filename>.txt` (relative to the current working directory).
 
-
-<!-- ## Interpreting the outputs
-
-For Formulation 1, `FEASIBLE` means that the input has a support network of
-level zero or one. `INFEASIBLE` means that its base level is greater than one.
-
-For Formulation 2, the optimized objective is the number of additional uses of
-edges across the selected reticulation cycles. It is a heuristic surrogate, not
-the network level itself; the implementation separately computes and reports
-the actual level of the selected support network. -->
-
+#### Drawing a network with its support networks
+To run `draw_network.py`, use
+```terminal
+python code/draw_network.py
+```
+and enter `sample-input`. Then, this program visualizes the network in PDF format in the working directory, such as [`sample-input.pdf`](sample-input.pdf). 
 
 ## License
 
