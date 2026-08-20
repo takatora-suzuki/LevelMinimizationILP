@@ -1,0 +1,7 @@
+Input file,Exact minimum level,Heuristic minimum level,Heuristic runtime,ILP Form2 level,ILP Form2 runtime,ILP Form2 objective
+n=8_r=7_1.txt,1,1,0.0037,1,0.0097,0.0
+n=8_r=7_2.txt,1,1,0.0047,1,0.0104,0.0
+n=8_r=7_4.txt,1,1,0.0013,1,0.0107,0.0
+n=8_r=7_7.txt,1,1,0.0102,1,0.011,0.0
+n=8_r=7_16.txt,1,1,0.0012,1,0.0105,0.0
+n=8_r=7_19.txt,1,1,0.0074,1,0.0115,0.0

@@ -1,0 +1,3 @@
+Input file,Exact minimum level,Exact runtime,Heuristic minimum level,Heuristic runtime,ILP Form1 level,ILP Form1 runtime,ILP Form2 level,ILP Form2 runtime,ILP Form2 objective
+ARGweaver_edges.txt,6,292.8154,6,1.3915,INFEASIBLE,0.0113,6,0.1610,20.0
+KwARG_edges.txt,1,0.0079,1,0.0081,1,0.0042,1,0.0107,0.0
